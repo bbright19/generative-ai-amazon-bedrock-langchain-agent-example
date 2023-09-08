@@ -16,9 +16,9 @@ class Tools():
         print("Initializing Tools")
         self.tools = [
             Tool(
-                name="Octank Financial",
+                name="Transcript knowledge",
                 func=self.chain_tool,
-                description="Use this tool to answer questions about Octank Financial.",
+                description="Use this tool to answer questions about meeting transcripts .",
             )
         ]
 
@@ -30,7 +30,7 @@ class Tools():
         llm = Bedrock(
             model_id="anthropic.claude-instant-v1"
         )  
-        llm.model_kwargs = {'max_tokens_to_sample': 200} 
+        llm.model_kwargs = {'max_tokens_to_sample': 4000} 
 
         retriever = KendraIndexRetriever(
             kendraindex=kendra_index_id, 
