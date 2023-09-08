@@ -782,9 +782,9 @@ def invoke_fm(intent_request):
     prompt = intent_request['inputTranscript']
     chat = Chat(prompt)
     llm = Bedrock(
-        model_id="anthropic.claude-instant-v1"
+        model_id="anthropic.claude-instant-v2"
     )  
-    llm.model_kwargs = {'max_tokens_to_sample': 200}
+    llm.model_kwargs = {'max_tokens_to_sample': 4000}
     lex_agent = FSIAgent(llm, chat.memory)
 
     try:
